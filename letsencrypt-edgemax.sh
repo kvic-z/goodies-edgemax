@@ -34,7 +34,7 @@ lighttpd_pem=/config/auth/erx.yourdomain.com.pem
 sudo LE_WORKING_DIR=${home} ${home}/acme.sh --renew -d ${domain} --days 70 ${force} > /dev/null
 
 _rv=$?
-_today=$(date +%Y-%m-%e)
+_today=$(date +%Y-%m-%d)
 _certm=$(sudo stat -c %y ${home}/${domain}/${domain}.cer|awk '{print $1}')
 
 if (( $_rv != 0 )) || [[ "$_today" != "$_certm" ]]; then
